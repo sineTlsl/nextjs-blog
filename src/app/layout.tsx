@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ko' className={notoSansKr.className}>
-      <body className='flex flex-col w-full max-w-[90rem] mx-auto'>
+      <body className='flex flex-col w-full max-w-[90rem] mx-auto text-gray-900'>
         <Header />
         <main className='grow'>{children}</main>
         <Footer />
