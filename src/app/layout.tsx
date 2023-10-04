@@ -1,9 +1,14 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import Link from 'next/link';
+import { Noto_Sans_KR } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+// components
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+const notoSansKr = Noto_Sans_KR({
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,18 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <header className='flex justify-between p-3 bg-stone-800 text-white'>
-          <h2 className='text-2xl font-semibold'>Sine&apos;s Blog</h2>
-          <div className='flex gap-4 items-center'>
-            <Link href='/home'>home</Link>
-            <Link href='/about'>about</Link>
-            <Link href='/posts'>posts</Link>
-            <Link href='/contact'>contact</Link>
-          </div>
-        </header>
-        {children}
+    <html lang='ko' className={notoSansKr.className}>
+      <body className='flex flex-col w-full max-w-[90rem] mx-auto'>
+        <Header />
+        <main className='grow'>{children}</main>
+        <Footer />
       </body>
     </html>
   );
