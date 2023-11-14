@@ -1,4 +1,4 @@
-export type PostType = {
+export type Post = {
   title: string;
   description: string;
   date: Date;
@@ -6,3 +6,5 @@ export type PostType = {
   path: string;
   featured: boolean;
 };
+
+export type PostData = Post & { content: string };
