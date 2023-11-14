@@ -1,8 +1,8 @@
-import { PostType } from '@/types/post';
+import { Post } from '@/types/post';
 import PostCard from '@/components/PostCard';
 
 type PostsProps = {
-  posts: PostType[];
+  posts: Post[];
 };
 
 export default function PostsGrid({ posts }: PostsProps) {

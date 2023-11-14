@@ -1,6 +1,6 @@
 'use client';
 
-import { PostType } from '@/types/post';
+import { Post } from '@/types/post';
 import { useState } from 'react';
 
 // components
@@ -8,7 +8,7 @@ import Categories from '@/components/Categories';
 import PostsGrid from '@/components/PostsGrid';
 
 type Props = {
-  posts: PostType[];
+  posts: Post[];
   categories: string[];
 };
 

@@ -1,9 +1,9 @@
-import { PostType } from '@/types/post';
+import { Post } from '@/types/post';
 import Image from 'next/image';
 import Link from 'next/link';
 
 type PostProps = {
-  post: PostType;
+  post: Post;
 };
 
 export default function PostCard({
