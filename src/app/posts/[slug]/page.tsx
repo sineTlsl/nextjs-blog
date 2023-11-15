@@ -2,10 +2,8 @@ import { getPostData } from '@/service/posts';
 import Image from 'next/image';
 
 // components
-import MarkdownViewer from '@/components/MarkdownViewer';
-
-// icon
-import { IoMdCalendar } from 'react-icons/io';
+import NextPostBtn from '@/components/NextPostBtn';
+import PostContent from '@/components/PostContent';
 
 type PostPageProps = {
   params: {
@@ -14,7 +12,8 @@ type PostPageProps = {
 };
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
-  const { title, description, date, path, content } = await getPostData(slug);
+  const post = await getPostData(slug);
+  const { title, path } = post;
 
   return (
     <article className='rounded-2xl overflow-hidden bg-gray-100 shadow-lg m-4'>
@@ -25,16 +24,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
         width={760}
         height={420}
       />
-      <section className='flex flex-col p-4'>
-        <div className='flex items-center self-end text-sky-600'>
-          <IoMdCalendar />
-          <p className='font-semibold ml-2'>{date.toString()}</p>
-        </div>
-        <h1 className='text-4xl font-bold'>{title}</h1>
-        <p className='text-xl font-bold'>{description}</p>
-        <div className='w-44 border-2 border-sky-600 mt-3 mb-8' />
-        <MarkdownViewer content={content} />
-      </section>
+      <PostContent post={post} />
     </article>
   );
 }
