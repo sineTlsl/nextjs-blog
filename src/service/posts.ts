@@ -1,14 +1,15 @@
 import path from 'path';
 import { readFile } from 'fs/promises';
 import { Post, PostData } from '@/types/post';
+import { cache } from 'react';
 
 /** 전체 포스팅 글 가져오기 */
-export async function getAllPosts(): Promise<Post[]> {
+export const getAllPosts = cache(async () => {
   const filePath = path.join(process.cwd(), 'data', 'posts.json');
   const data = await readFile(filePath, 'utf-8').then<Post[]>(JSON.parse);
 
   return data.sort((a, b) => (a.date > b.date ? -1 : 1)); // 최신순 정렬
-}
+});
 
 /** featured가 true인 포스트들만 가져오기 */
 export async function getFeaturedPosts(): Promise<Post[]> {
