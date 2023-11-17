@@ -1,3 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Me',
+  description: "Sieun's about",
+};
+
 // components
 import Hero from '@/components/Hero';
 

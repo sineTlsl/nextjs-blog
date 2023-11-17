@@ -1,4 +1,10 @@
 import ContactForm from '@/components/ContactForm';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Me',
+  description: '싱니에게 메일 보내기',
+};
 
 // icons
 import { FaGithub, FaGithubAlt, FaInstagram } from 'react-icons/fa';
